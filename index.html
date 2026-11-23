@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastre · L'Ametlla del Vallès</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside id="side">
+    <header>
+      <h1>L'Ametlla del Vallès</h1>
+      <p class="sub">Cadastral plots · <span id="count">loading…</span></p>
+      <p class="disclaimer">Unofficial map built from public Catastro, Generalitat and IGN data.
+        Building potential, splits and slopes are estimates from the town plan, not planning
+        advice. Check with the Ajuntament before relying on them.</p>
+    </header>
+
+    <form id="search" autocomplete="off">
+      <input id="q" type="search" placeholder="Cadastral ref. (e.g. 6636025DG3163N)">
+    </form>
+
+    <section class="controls">
+      <label>Colour by
+        <select id="colorBy">
+          <option value="cat">Use / type</option>
+          <option value="zoning">Zoning (town plan)</option>
+          <option value="area">Plot size (m²)</option>
+          <option value="year">Year built</option>
+          <option value="far">Density (built m² / plot m²)</option>
+          <option value="slope">Terrain slope (%)</option>
+          <option value="remaining">Remaining buildable m² (town plan)</option>
+          <option value="dwellings">Extra dwellings possible (town plan)</option>
+        </select>
+      </label>
+      <div id="legend"></div>
+    </section>
+
+    <section id="details" class="empty">
+      <p>Click a plot on the map to see its Catastro data.</p>
+    </section>
+
+    <footer>Data: <a href="https://www.sedecatastro.gob.es/" target="_blank" rel="noopener">Dirección General del Catastro</a> (INSPIRE WFS + OVC services)</footer>
+  </aside>
+  <main id="map"></main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
